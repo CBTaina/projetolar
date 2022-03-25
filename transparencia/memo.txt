@@ -1,10 +1,12 @@
-    mudar imports do bootstrap para .min no fim do desenvolvimento 
+    mudar cor do rodape e menu
+
+    ajustar tamanho do menu e rodape( footer.footer no styles.css)
+
+    trocar imagens do logo e icone da pagina
+
+    ajustar links(dos arquivos em pastas novas) e nomes
+
+    mudar imports do bootstrap para .min 
 
     criar pasta para os aqruivos personalizados 
-
-    mudar cor do rodape e menu
     
-    ajustar tamanho do menu e rodape(min-height)
-    
-    ajustar links e nomes
-        
