@@ -11374,8 +11374,8 @@ header.masthead h1, header.masthead .h1 {
   left: 0;
   opacity: 0.5;
 }
-
+/* modificado para diminuir tamanho do rodape - tamanho original 4rem em ambos */
 footer.footer {
-  padding-top: 4rem;
-  padding-bottom: 4rem;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
 }

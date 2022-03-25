@@ -4,5 +4,7 @@
 
     mudar cor do rodape e menu
     
+    ajustar tamanho do menu e rodape(min-height)
+    
     ajustar links e nomes
         

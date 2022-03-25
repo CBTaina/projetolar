@@ -10,7 +10,7 @@
         <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.css">
         <!-- Bootstrap icons CSS -->
         <link rel="stylesheet" href="./node_modules/bootstrap-icons/font/bootstrap-icons.css">
-        
+
         <link rel="stylesheet" href="styles.css">
         <link rel="stylesheet" href="personalizado.css">
     </head>
@@ -25,29 +25,49 @@
                     <div class="col">
                         <h3 class="text-primary">Formulário de Cadastro</h3>
                     </div>
+
+                    <?php 
+                        if(true){ 
+                    ?>
+
                     <!-- Modal Call -->
-                    <div class="col text-right" align="right">
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newcad">Novo Cadastro</button>
+                    <div class="col" align="right">
+                        <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#cad">Novo Cadastro</button>
                     </div>
+
+                    <?php 
+                        }
+                    ?>
+
                     <!-- Modal -->
-                    <div class="modal fade" id="newcad" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="newcadLabel" aria-hidden="true">
-                        <div class="modal-dialog">
+                    <div class="modal fade" id="cad" data-bs-backdrop="static" tabindex="-1" aria-labelledby="cadLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
                             <div class="modal-content">
                                 <!-- Modal header -->
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="newcadLabel">Cadastrando usuario</h5>
+                                    <h5 class="modal-title" id="cadLabel">Doação</h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <!-- Modal body -->
                                 <div class="modal-body">
                                     <form action="back-End/cadastros.php" method="post">
-                                        <label for="">Nome</label>
-                                        <input type="text" name="nome" class="form-control" placeholder="digite seu nome" required><br>
-                                        <label for="">Telefone</label>
-                                        <input type="text" name="telefone" class="form-control" placeholder="digite seu telefone" required><br>
+                                        <label for="">Origem</label>
+                                        <select name="origem" id="origem" class="form-control" required="required">
+                                            <option value="" disabled selected hidden>Selecione a origem da doação</option>
 
-                                        <div class=text-right>
-                                            <input type="submit" value="ENVIAR" class="btn btn-success">
+                                            <option value="Privada">Privada</option>
+                                            <option value="Pública">Pública</option>
+                                        </select><br>
+                                        <label for="">Doador</label>
+                                        <input type="text" name="doador" id="doador" class="form-control" placeholder="Digite a entidade responsavel pela doação" required><br>
+                                        <label for="">Objeto</label>
+                                        <input type="text" name="objeto" id="objeto" class="form-control" placeholder="Digite o(s) objeto(s) doado(s)" required><br>
+                                        <label for="">Data</label>
+                                        <input type="date" name="data" id="data" class="form-control" placeholder="Digite a data da doação" required><br>
+                                        <label for="">Valor (R$)</label>
+                                        <input type="text" name="valor" id="valor" class="form-control" placeholder="Digite o valor doado" required><br>
+                                        <div class="text-right" align="right">
+                                            <input type="submit" value="ENVIAR" class="btn btn-success btn-sm">
                                         </div>
                                     </form>
                                 </div>
@@ -55,20 +75,24 @@
                         </div>
                     </div>
                 </div>
-                <!-- busca -->
-                <br>
-                <input class="form-control" id="myInput" type="text" placeholder="Busca">
                 <br>
                 <!-- tabela responsiva -->
                 <div class="table-responsive">
                     <table class="table table-bordered" id="dataListagens" width="100%" cellspacing="0">
                         <thead>
                             <tr>
-                                <th>id</th>
-                                <th>Nome</th>
-                                <th>Telefone</th>
+                                <th>Origem</th>
+                                <th>Doador</th>
+                                <th>Objeto</th>
                                 <th>Data</th>
-                                <th>Ações</th>
+                                <th>Valores</th>
+                                <?php 
+                                    if(true){ 
+                                ?>
+                                <th>Gerenciamento</th>
+                                <?php 
+                                    }
+                                ?>
                             </tr>
                         </thead>
 
@@ -76,7 +100,7 @@
                             <?php
                                 include 'back-End/conexao.php';
 
-                                $query_listar = " SELECT * FROM cadastro_pessoas "; 
+                                $query_listar = " SELECT * FROM transparencia "; 
                                 $buscar_cadastros = mysqli_query($connex, $query_listar);
 
                                 while($retorno_cadastros = mysqli_fetch_array($buscar_cadastros))
@@ -84,11 +108,14 @@
                             ?>
 
                             <tr>
-                                <td scope="row"> <?php echo $retorno_cadastros['id']; ?> </td>
-                                <td> <?php echo $retorno_cadastros['nome']; ?> </td>
-                                <td> <?php echo $retorno_cadastros['telefone']; ?> </td>
-                                <td> <?php echo $retorno_cadastros['dataCadastro']; ?> </td>
-
+                                <td scope="row"> <?php echo $retorno_cadastros['origem']; ?> </td>
+                                <td> <?php echo $retorno_cadastros['doador']; ?> </td>
+                                <td align="justify"> <?php echo $retorno_cadastros['objeto']; ?> </td>
+                                <td> <?php echo $retorno_cadastros['data']; ?> </td>
+                                <td> <?php echo $retorno_cadastros['valor']; ?> </td>
+                                <?php 
+                                    if(true){ 
+                                ?>
                                 <td>
                                     <form action="back-End/delete.php" method="post">
                                         <input type="hidden" name="idCadastro" value="<?php echo $retorno_cadastros['id']; ?>">
@@ -98,6 +125,7 @@
                             </tr>
 
                             <?php 
+                                    }
                                 } 
                             ?>
                         </tbody>
@@ -109,42 +137,6 @@
         <?php include 'rodape.php' ?>
         <!-- Bootstrap js - Bundle with Popper -->
         <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
-        <!-- busca -->
-        <script>
-        document.getElementById('myInput').addEventListener('keyup', debound(filter_table, 500))
-
-        function filter_table(e) {
-            const rows = document.querySelectorAll('tbody tr')
-            rows.forEach(row => {
-                row.style.display = (row.innerText.includes(e.target.value)) ? '' : 'none'
-            })
-        }
-
-        function debound(func, timeout) {
-            let timer
-            return (...args) => {
-                if (!timer) {
-                    func.apply(this, args);
-                }
-                clearTimeout(timer)
-                timer = setTimeout(() => {
-                    func.apply(this, args)
-                    timer = undefined
-                }, timeout)
-            }
-        }
-        </script>
-
-        <!-- <script>
-        $(document).ready(function() {
-            $("#myInput").on("keyup", function() {
-                var value = $(this).val().toLowerCase();
-                $("#myTable tr").filter(function() {
-                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-                });
-            });
-        });
-        </script> -->
     </body>
 
 </html>

@@ -1,13 +1,20 @@
 <?php
 include 'conexao.php';
 
-    $nome = $_POST['nome'];
-    $telefone = $_POST['telefone'];
+    $origem = $_POST['origem'];
+    $doador = $_POST['doador'];
+    $objeto = $_POST['objeto'];
+    $data = $_POST['data'];
+    $valor = $_POST['valor'];
 
-    $query_cadastrar = "INSERT INTO cadastro_pessoas VALUES(
+    $query_cadastrar = "INSERT INTO transparencia VALUES(
         null,
-        '$nome',
-        '$telefone',
+        '$origem',
+        '$doador',
+        '$objeto',
+        '$data',
+        '$valor',
+        null, /* comprovante */
         now()
     )";
 
