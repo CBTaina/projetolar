@@ -1,0 +1,8 @@
+    mudar imports do bootstrap para .min no fim do desenvolvimento 
+
+    criar pasta para os aqruivos personalizados 
+
+    mudar cor do rodape e menu
+    
+    ajustar links e nomes
+        
