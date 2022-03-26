@@ -5,7 +5,7 @@ include '../../include/conexao.php';
     //$foto = $_POST['foto'];
 
 
-    $query_cadastrar = "INSERT INTO transparencia VALUES(
+    $query_cadastrar = "INSERT INTO mural VALUES(
         null,
         '$nome',
         null,/* foto */

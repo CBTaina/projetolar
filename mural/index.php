@@ -32,49 +32,34 @@
                     <div class="container">
                         <div class="row mb-4">
                             <div class="col">
-                                <h3 class="text-primary">Formulário de Cadastro</h3>
+                                <h3 class="text-primary">Mural de Fotos</h3>
                             </div>
 
                             <?php 
                                 if(true){ 
                             ?>
 
-                            <!-- Modal Call -->
+                            <!-- Modal cadastro - chamado -->
                             <div class="col" align="right">
                                 <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#cad">Novo Cadastro</button>
                             </div>
-
-                            <?php 
-                                }
-                            ?>
-
-                            <!-- Modal -->
+                            <!-- Modal cadastro -->
                             <div class="modal fade" id="cad" data-bs-backdrop="static" tabindex="-1" aria-labelledby="cadLabel" aria-hidden="true">
                                 <div class="modal-dialog modal-lg">
                                     <div class="modal-content">
                                         <!-- Modal header -->
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="cadLabel">Doação</h5>
+                                            <h5 class="modal-title" id="cadLabel">Adicionar ao mural</h5>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <!-- Modal body -->
                                         <div class="modal-body">
-                                            <form action="crud/cadastros.php" method="post">
-                                                <label for="">Origem</label>
-                                                <select name="origem" id="origem" class="form-control" required="required">
-                                                    <option value="" disabled selected hidden>Selecione a origem da doação</option>
+                                            <form action="crud/create.php" method="post">
+                                                <label for="">Nome</label>
+                                                <input type="text" name="nome" id="nome" class="form-control" placeholder="Digite o nome da pessoa" required><br>
+                                                <!-- <label for="">Descrição</label>
+                                                <input type="text" name="descricao" id="descricao" class="form-control" placeholder="Digite a descrição" required><br> -->
 
-                                                    <option value="Privada">Privada</option>
-                                                    <option value="Pública">Pública</option>
-                                                </select><br>
-                                                <label for="">Doador</label>
-                                                <input type="text" name="doador" id="doador" class="form-control" placeholder="Digite a entidade responsavel pela doação" required><br>
-                                                <label for="">Objeto</label>
-                                                <input type="text" name="objeto" id="objeto" class="form-control" placeholder="Digite o(s) objeto(s) doado(s)" required><br>
-                                                <label for="">Data</label>
-                                                <input type="date" name="data" id="data" class="form-control" placeholder="Digite a data da doação" required><br>
-                                                <label for="">Valor (R$)</label>
-                                                <input type="text" name="valor" id="valor" class="form-control" placeholder="Digite o valor doado" required><br>
                                                 <div class="text-right" align="right">
                                                     <input type="submit" value="ENVIAR" class="btn btn-success btn-sm">
                                                 </div>
@@ -83,6 +68,11 @@
                                     </div>
                                 </div>
                             </div>
+
+                            <?php 
+                                }
+                            ?>
+
                         </div>
                         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
 
@@ -98,7 +88,7 @@
 
                             <div class="col-lg-4 mb-3 d-flex align-items-stretch">
                                 <div class="card shadow-sm">
-                                    <img class="img-thumbnail mb-1" srcset="https://getbootstrap.com/docs/5.1/assets/img/examples/headers.png, https://getbootstrap.com/docs/5.1/assets/img/examples/headers@2x.png 2x" src="/docs/5.1/assets/img/examples/headers.png" alt="" width="100%" height="225" loading="lazy">
+                                    <img class="img-thumbnail mb-1" src="https://getbootstrap.com/docs/5.1/assets/img/examples/headers.png" alt="" width="100%" height="225" loading="lazy">
 
                                     <div class="card-body">
 
@@ -108,11 +98,9 @@
 
                                         <div class="d-flex align-items-end flex-column mb-2">
                                             <div class="btn-group">
-                                                <button type="button" class="btn btn-sm btn-outline-secondary">Editar</button>
-                                                <form action="crud/delete.php" method="post">
-                                                    <input type="hidden" name="idCrud" value="<?php echo $retorno_cadastros['id']; ?>">
-                                                    <input type="submit" value="Apagar" class="btn btn-sm btn-outline-secondary">
-                                                </form>
+                                                <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#e<?php echo $retorno_cadastros['id']; ?>">Editar</button>
+
+                                                <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#d<?php echo $retorno_cadastros['id']; ?>">Apagar</button>
 
                                             </div>
                                         </div>
@@ -126,30 +114,55 @@
                                     </div>
                                 </div>
                             </div>
+                            <!-- Modal delete -->
+                            <div class="modal fade" id="d<?php echo $retorno_cadastros['id']; ?>" data-bs-backdrop="static" tabindex="-1" aria-labelledby="cadLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-content">
+                                        <!-- Modal header -->
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="cadLabel">Tem certeza que deseja excluir esse conteudo?</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <!-- Modal body -->
+                                        <div class="modal-body" align="right">
+                                            <form action="crud/delete.php" method="post">
+                                                <input type="hidden" name="idCrud" value="<?php echo $retorno_cadastros['id']; ?>">
+                                                <input type="submit" value="Continuar" class="btn btn-sm btn-success">
+
+                                                <button type="button" class="btn btn-sm btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Modal edit -->
+                            <div class="modal fade" id="e<?php echo $retorno_cadastros['id']; ?>" data-bs-backdrop="static" tabindex="-1" aria-labelledby="cadLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-content">
+                                        <!-- Modal header -->
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="cadLabel">Edição</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <!-- Modal body -->
+                                        <div class="modal-body">
+                                            <form action="crud/edit.php" method="post">
+                                                <input type="hidden" name="idCrud" value="<?php echo $retorno_cadastros['id']; ?>">
+                                                <label for="">Nome</label>
+                                                <input type="text" name="nome" value="<?php echo $retorno_cadastros['nome']; ?>" class="form-control"><br>
+                                                <div class="text-right" align="right">
+                                                    <input type="submit" value="ENVIAR" class="btn btn-success btn-sm">
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
                             <?php 
                                 }
                             ?>
 
-                            <div class="col-lg-4 mb-3 d-flex align-items-stretch">
-                                <div class="card shadow-sm">
-                                    <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
-                                        <title>Placeholder</title>
-                                        <rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
-                                    </svg>
-
-                                    <div class="card-body">
-                                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                        <div class="d-flex justify-content-between align-items-center">
-                                            <div class="btn-group">
-                                                <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                                                <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                                            </div>
-                                            <small class="text-muted">9 mins</small>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </section>

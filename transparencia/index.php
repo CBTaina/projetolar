@@ -21,34 +21,29 @@
             <div class="container">
                 <div class="row mt-4">
                     <div class="col">
-                        <h3 class="text-primary">Formulário de Cadastro</h3>
+                        <h2 class="text-primary">Doações</h2>
                     </div>
 
                     <?php 
                         if(true){ 
                     ?>
 
-                    <!-- Modal Call -->
+                    <!-- Modal cadastro - chamado -->
                     <div class="col" align="right">
                         <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#cad">Novo Cadastro</button>
                     </div>
-
-                    <?php 
-                        }
-                    ?>
-
-                    <!-- Modal -->
+                    <!-- Modal cadastro -->
                     <div class="modal fade" id="cad" data-bs-backdrop="static" tabindex="-1" aria-labelledby="cadLabel" aria-hidden="true">
                         <div class="modal-dialog modal-lg">
                             <div class="modal-content">
                                 <!-- Modal header -->
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="cadLabel">Doação</h5>
+                                    <h5 class="modal-title" id="cadLabel">Registrar Doação</h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <!-- Modal body -->
                                 <div class="modal-body">
-                                    <form action="crud/cadastros.php" method="post">
+                                    <form action="crud/create.php" method="post">
                                         <label for="">Origem</label>
                                         <select name="origem" id="origem" class="form-control" required="required">
                                             <option value="" disabled selected hidden>Selecione a origem da doação</option>
@@ -72,6 +67,11 @@
                             </div>
                         </div>
                     </div>
+
+                    <?php 
+                        }
+                    ?>
+
                 </div>
                 <br>
                 <!-- tabela responsiva -->
@@ -117,12 +117,31 @@
                                 ?>
 
                                 <td>
-                                    <form action="crud/delete.php" method="post">
-                                        <input type="hidden" name="idCrud" value="<?php echo $retorno_cadastros['id']; ?>">
-                                        <input type="submit" value="EXCLUIR" class="btn btn-danger btn-sm">
-                                    </form>
+                                    <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#d<?php echo $retorno_cadastros['id']; ?>">Apagar</button>
                                 </td>
                             </tr>
+
+                            <!-- Modal delete -->
+                            <div class="modal fade" id="d<?php echo $retorno_cadastros['id']; ?>" data-bs-backdrop="static" tabindex="-1" aria-labelledby="cadLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-content">
+                                        <!-- Modal header -->
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="cadLabel">Tem certeza que deseja excluir esse conteudo?</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <!-- Modal body -->
+                                        <div class="modal-body" align="right">
+                                            <form action="crud/delete.php" method="post">
+                                                <input type="hidden" name="idCrud" value="<?php echo $retorno_cadastros['id']; ?>">
+                                                <input type="submit" value="Continuar" class="btn btn-sm btn-success">
+
+                                                <button type="button" class="btn btn-sm btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
                             <?php 
                                     }

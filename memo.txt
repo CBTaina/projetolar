@@ -4,25 +4,23 @@ geral
 
     mudar cor do rodape e menu
 
-    ajustar tamanho do menu e rodape( footer.footer no styles.css)
-
     trocar imagens do logo e icone da pagina
 
     ajustar nomes e links
+
+    ajustar tamanho do menu e rodape( footer.footer no styles.css)
 
     mudar imports do bootstrap para .min 
 }
 
 transparencia
 {
-    
+    opcional: adicionar envio e carregamento de arquivos do bd
 }
 
-fotos
+mural
 {
-    enviar e carregar fotos do bd
-
-    add editar
+    adicionar envio e carregamento de fotos do bd
 
     ajustar tamanho das fotos anexadas
 }
