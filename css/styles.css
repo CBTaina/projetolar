@@ -11374,8 +11374,28 @@ header.masthead h1, header.masthead .h1 {
   left: 0;
   opacity: 0.5;
 }
-/* modificado para diminuir tamanho do rodape - tamanho original 4rem em ambos */
+/* modificado */
 footer.footer {
-  padding-top: 3rem;
-  padding-bottom: 3rem;
+  /* modificado para diminuir tamanho do rodape - tamanho original 4rem em ambos */
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+body {
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  min-height: 50px;
+}
+
+footer {
+  margin-top: auto;
+}
+
+.row{
+  word-wrap: break-word;
 }
