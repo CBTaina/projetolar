@@ -81,7 +81,7 @@
                 <br>
                 <!-- tabela responsiva -->
                 <div class="table-responsive">
-                    <table class="table table-bordered" id="dataListagens" width="100%" cellspacing="0">
+                    <table class="table table-bordered table-striped table-sm" id="dataListagens" width="100%" cellspacing="0">
                         <thead>
                             <tr>
                                 <th>Origem</th>

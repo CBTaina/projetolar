@@ -1,11 +1,45 @@
-.row{
+footer.footer {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+body {
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  min-height: 50px;
+}
+
+footer {
+  margin-top: auto;
+}
+
+.row {
   word-wrap: break-word;
 }
 
-thead{
-  text-align:center;
+thead {
+  text-align: center;
 }
 
-tbody{
-  text-align:center;
+tbody {
+  text-align: center;
+}
+
+.bd-placeholder-img {
+  font-size: 1.125rem;
+  text-anchor: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+@media (min-width: 768px) {
+  .bd-placeholder-img-lg {
+    font-size: 3.5rem;
+  }
 }
