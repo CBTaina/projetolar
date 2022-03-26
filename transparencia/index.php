@@ -13,14 +13,14 @@
         <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
         <!-- CSS personalizado -->
         <link rel="stylesheet" href="../css/styles.css">
-        <link rel="stylesheet" href="./css/personalizado.css">
+        <link rel="stylesheet" href="../css/personalizado.css">
         <!-- Ícone pagina -->
         <link rel="shortcut icon" type="image/x-icon" href="https://sistemas.ufac.br/home/wp-content/themes/sistemas/staticIndex/imagens/logo_ufac.gif">
     </head>
 
     <body>
         <!-- menu -->
-        <?php include '../menu.php' ?>
+        <?php include '../include/menu.php' ?>
         <!-- main -->
         <main>
             <div class="container">
@@ -137,7 +137,7 @@
             </div>
         </main>
         <!-- footer -->
-        <?php include '../rodape.php' ?>
+        <?php include '../include/rodape.php' ?>
         <!-- Bootstrap js - Bundle with Popper -->
         <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
     </body>

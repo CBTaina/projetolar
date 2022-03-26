@@ -1,7 +1,53 @@
-thead{
-  text-align:center;
+footer.footer {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 }
 
-tbody{
-  text-align:center;
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+  margin: 0;
+  display: table;
+  width: 100%;
+}
+
+header {
+  height: 50px;
+}
+
+article {
+  height: 1%;
+}
+
+footer {
+  margin-top: auto;
+}
+
+.row {
+  word-wrap: break-word;
+}
+
+thead {
+  text-align: center;
+}
+
+tbody {
+  text-align: center;
+}
+
+.bd-placeholder-img {
+  font-size: 1.125rem;
+  text-anchor: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+@media (min-width: 768px) {
+  .bd-placeholder-img-lg {
+    font-size: 3.5rem;
+  }
 }

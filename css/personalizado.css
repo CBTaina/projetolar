@@ -1,0 +1,11 @@
+.row{
+  word-wrap: break-word;
+}
+
+thead{
+  text-align:center;
+}
+
+tbody{
+  text-align:center;
+}
