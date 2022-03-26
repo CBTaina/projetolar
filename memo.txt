@@ -20,5 +20,9 @@ transparencia
 
 fotos
 {
+    criar bd para guardar as informações e fotos
 
+    criar estrutura de repetição para carregar todas as fotos do bd
+    
+    ajustar tamanho das fotos anexadas
 }
