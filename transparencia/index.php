@@ -7,13 +7,8 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-        <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
-        <!-- Bootstrap icons CSS -->
-        <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
-        <!-- CSS personalizado -->
-        <link rel="stylesheet" href="../css/styles.css">
-        <link rel="stylesheet" href="../css/personalizado.css">
+        <!-- css imports-->
+        <?php include '../include/css.php' ?>
         <!-- Ícone pagina -->
         <link rel="shortcut icon" type="image/x-icon" href="https://sistemas.ufac.br/home/wp-content/themes/sistemas/staticIndex/imagens/logo_ufac.gif">
     </head>
@@ -53,7 +48,7 @@
                                 </div>
                                 <!-- Modal body -->
                                 <div class="modal-body">
-                                    <form action="back-End/cadastros.php" method="post">
+                                    <form action="crud/cadastros.php" method="post">
                                         <label for="">Origem</label>
                                         <select name="origem" id="origem" class="form-control" required="required">
                                             <option value="" disabled selected hidden>Selecione a origem da doação</option>
@@ -101,7 +96,7 @@
 
                         <tbody id="myTable">
                             <?php
-                                include 'back-End/conexao.php';
+                                include '../include/conexao.php';
 
                                 $query_listar = " SELECT * FROM transparencia "; 
                                 $buscar_cadastros = mysqli_query($connex, $query_listar);
@@ -116,12 +111,14 @@
                                 <td align="justify"> <?php echo $retorno_cadastros['objeto']; ?> </td>
                                 <td> <?php echo $retorno_cadastros['data']; ?> </td>
                                 <td> <?php echo $retorno_cadastros['valor']; ?> </td>
+
                                 <?php 
                                     if(true){ 
                                 ?>
+
                                 <td>
-                                    <form action="back-End/delete.php" method="post">
-                                        <input type="hidden" name="idCadastro" value="<?php echo $retorno_cadastros['id']; ?>">
+                                    <form action="crud/delete.php" method="post">
+                                        <input type="hidden" name="idCrud" value="<?php echo $retorno_cadastros['id']; ?>">
                                         <input type="submit" value="EXCLUIR" class="btn btn-danger btn-sm">
                                     </form>
                                 </td>
@@ -138,8 +135,8 @@
         </main>
         <!-- footer -->
         <?php include '../include/rodape.php' ?>
-        <!-- Bootstrap js - Bundle with Popper -->
-        <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+        <!-- js imports-->
+        <?php include '../include/js.php' ?>
     </body>
 
 </html>

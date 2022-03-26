@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 25-Mar-2022 às 21:13
+-- Tempo de geração: 26-Mar-2022 às 20:21
 -- Versão do servidor: 10.4.22-MariaDB
 -- versão do PHP: 8.1.1
 
@@ -24,6 +24,28 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `mural`
+--
+
+CREATE TABLE `mural` (
+  `id` int(11) NOT NULL,
+  `nome` varchar(200) NOT NULL,
+  `foto` longblob DEFAULT NULL,
+  `descricao` text DEFAULT NULL,
+  `dataCadastro` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `mural`
+--
+
+INSERT INTO `mural` (`id`, `nome`, `foto`, `descricao`, `dataCadastro`) VALUES
+(1, 'nome1', NULL, NULL, 0),
+(3, 'nome1', NULL, NULL, 0);
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `transparencia`
 --
 
@@ -34,7 +56,7 @@ CREATE TABLE `transparencia` (
   `objeto` text NOT NULL,
   `data` date NOT NULL,
   `valor` double NOT NULL,
-  `comprovante` blob DEFAULT NULL,
+  `comprovante` longblob DEFAULT NULL,
   `dataCadastro` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -44,12 +66,17 @@ CREATE TABLE `transparencia` (
 
 INSERT INTO `transparencia` (`id`, `origem`, `doador`, `objeto`, `data`, `valor`, `comprovante`, `dataCadastro`) VALUES
 (4, 'Privado', 'ela', 'aquilo', '2022-01-01', 13000, NULL, '2022-03-25 14:58:27'),
-(5, 'Privado', 'denovo', 'aquilo la', '2022-12-31', 22, NULL, '2022-03-25 14:59:00'),
-(6, 'Publico', 'alskakl', 'ultimo', '2022-12-01', 20000, NULL, '2022-03-25 14:59:25');
+(5, 'Privado', 'denovo', 'aquilo la', '2022-12-31', 22, NULL, '2022-03-25 14:59:00');
 
 --
 -- Índices para tabelas despejadas
 --
+
+--
+-- Índices para tabela `mural`
+--
+ALTER TABLE `mural`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Índices para tabela `transparencia`
@@ -60,6 +87,12 @@ ALTER TABLE `transparencia`
 --
 -- AUTO_INCREMENT de tabelas despejadas
 --
+
+--
+-- AUTO_INCREMENT de tabela `mural`
+--
+ALTER TABLE `mural`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de tabela `transparencia`

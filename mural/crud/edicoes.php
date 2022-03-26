@@ -1,7 +1,7 @@
 <?php
-    include 'conexao.php';
+    include '../../include/conexao.php';
 
-    $id = $_POST['idCadastro'];
+    $id = $_POST['idCrud'];
     $nome = $_POST['nome'];
     $telefone = $_POST['telefone'];
    

@@ -15,14 +15,14 @@ geral
 
 transparencia
 {
-
+    
 }
 
 fotos
 {
-    criar bd para guardar as informações e fotos
+    enviar e carregar fotos do bd
 
-    criar estrutura de repetição para carregar todas as fotos do bd
-    
+    add editar
+
     ajustar tamanho das fotos anexadas
 }
