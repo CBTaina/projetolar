@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 26-Mar-2022 às 20:21
+-- Tempo de geração: 26-Mar-2022 às 23:38
 -- Versão do servidor: 10.4.22-MariaDB
 -- versão do PHP: 8.1.1
 
@@ -41,7 +41,7 @@ CREATE TABLE `mural` (
 
 INSERT INTO `mural` (`id`, `nome`, `foto`, `descricao`, `dataCadastro`) VALUES
 (1, 'nome1', NULL, NULL, 0),
-(3, 'nome1', NULL, NULL, 0);
+(7, 'alexa1', NULL, NULL, 2147483647);
 
 -- --------------------------------------------------------
 
@@ -65,8 +65,7 @@ CREATE TABLE `transparencia` (
 --
 
 INSERT INTO `transparencia` (`id`, `origem`, `doador`, `objeto`, `data`, `valor`, `comprovante`, `dataCadastro`) VALUES
-(4, 'Privado', 'ela', 'aquilo', '2022-01-01', 13000, NULL, '2022-03-25 14:58:27'),
-(5, 'Privado', 'denovo', 'aquilo la', '2022-12-31', 22, NULL, '2022-03-25 14:59:00');
+(4, 'Privado', 'ela', 'aquilo', '2022-01-01', 13000, NULL, '2022-03-25 14:58:27');
 
 --
 -- Índices para tabelas despejadas
@@ -92,7 +91,7 @@ ALTER TABLE `transparencia`
 -- AUTO_INCREMENT de tabela `mural`
 --
 ALTER TABLE `mural`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de tabela `transparencia`

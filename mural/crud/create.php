@@ -1,14 +1,13 @@
 <?php
-include '../../include/conexao.php';
+    include '../../include/conexao.php';
 
     $nome = $_POST['nome'];
-    //$foto = $_POST['foto'];
-
+    $foto = $_POST['foto'];
 
     $query_cadastrar = "INSERT INTO mural VALUES(
         null,
         '$nome',
-        null,/* foto */
+        '$foto',
         null,/* descricao */
         now()
     )";

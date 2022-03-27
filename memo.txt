@@ -20,7 +20,7 @@ transparencia
 
 mural
 {
-    adicionar envio e carregamento de fotos do bd
+    adicionar carregamento de fotos do bd
 
     ajustar tamanho das fotos anexadas
 }

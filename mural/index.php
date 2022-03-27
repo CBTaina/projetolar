@@ -59,7 +59,8 @@
                                                 <input type="text" name="nome" id="nome" class="form-control" placeholder="Digite o nome da pessoa" required><br>
                                                 <!-- <label for="">Descrição</label>
                                                 <input type="text" name="descricao" id="descricao" class="form-control" placeholder="Digite a descrição" required><br> -->
-
+                                                <label for="">Foto</label>
+                                                <input type="file" name="foto" id="foto" class="form-control" accept=".jpg, .jpeg, .png" required><br>
                                                 <div class="text-right" align="right">
                                                     <input type="submit" value="ENVIAR" class="btn btn-success btn-sm">
                                                 </div>
@@ -150,6 +151,9 @@
                                                 <input type="hidden" name="idCrud" value="<?php echo $retorno_cadastros['id']; ?>">
                                                 <label for="">Nome</label>
                                                 <input type="text" name="nome" value="<?php echo $retorno_cadastros['nome']; ?>" class="form-control"><br>
+                                                <label for="">Foto</label>
+                                                <input type="file" name="foto" id="foto" class="form-control" accept=".jpg, .jpeg, .png" required><br>
+
                                                 <div class="text-right" align="right">
                                                     <input type="submit" value="ENVIAR" class="btn btn-success btn-sm">
                                                 </div>
