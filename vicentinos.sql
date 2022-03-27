@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 26-Mar-2022 às 23:38
+-- Tempo de geração: 27-Mar-2022 às 06:18
 -- Versão do servidor: 10.4.22-MariaDB
 -- versão do PHP: 8.1.1
 
@@ -20,6 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Banco de dados: `vicentinos`
 --
+CREATE DATABASE IF NOT EXISTS `vicentinos` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `vicentinos`;
 
 -- --------------------------------------------------------
 
@@ -30,9 +32,9 @@ SET time_zone = "+00:00";
 CREATE TABLE `mural` (
   `id` int(11) NOT NULL,
   `nome` varchar(200) NOT NULL,
-  `foto` longblob DEFAULT NULL,
+  `foto` longblob NOT NULL,
   `descricao` text DEFAULT NULL,
-  `dataCadastro` int(11) NOT NULL
+  `dataCadastro` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -40,8 +42,7 @@ CREATE TABLE `mural` (
 --
 
 INSERT INTO `mural` (`id`, `nome`, `foto`, `descricao`, `dataCadastro`) VALUES
-(1, 'nome1', NULL, NULL, 0),
-(7, 'alexa1', NULL, NULL, 2147483647);
+(17, 'ok', 0x617373696e61747572614469676974616c2e706e67, NULL, '2022-03-26 23:07:55');
 
 -- --------------------------------------------------------
 
@@ -91,7 +92,7 @@ ALTER TABLE `transparencia`
 -- AUTO_INCREMENT de tabela `mural`
 --
 ALTER TABLE `mural`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT de tabela `transparencia`

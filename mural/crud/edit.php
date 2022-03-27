@@ -9,5 +9,5 @@
     
     $query_cadastro = mysqli_query($connex, $recebendo_cadastro);
 
-    header('location: ../index.php');
+    header('location: ..');
 ?>

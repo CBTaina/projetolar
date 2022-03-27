@@ -89,7 +89,7 @@
 
                             <div class="col-lg-4 mb-3 d-flex align-items-stretch">
                                 <div class="card shadow-sm">
-                                    <img class="img-thumbnail mb-1" src="https://getbootstrap.com/docs/5.1/assets/img/examples/headers.png" alt="" width="100%" height="225" loading="lazy">
+                                    <img class="img-thumbnail mb-1" src="https://w7.pngwing.com/pngs/557/438/png-transparent-error-message-icon-warning-icons-trademark-computer-window.png" alt="" width="100%" height="225" loading="lazy">
 
                                     <div class="card-body">
 
